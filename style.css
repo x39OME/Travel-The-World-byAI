@@ -1001,99 +1001,123 @@ section{padding:5rem 0}
   .contact-grid{grid-template-columns:1fr}
 }
 @media(max-width:768px){
-  /* ── NAVBAR ── */
+
+  /* ══ NAVBAR ══ */
+  .nav-container{justify-content:space-between}
   .nav-links{
-    position:fixed;top:68px;left:0;right:0;
-    background:rgba(10,22,40,.97);backdrop-filter:blur(20px);
-    flex-direction:column;padding:1.5rem;
-    transform:translateY(-110%);opacity:0;transition:var(--tr);
-    border-bottom:1px solid rgba(255,255,255,.1);z-index:999;
+    position:fixed;top:64px;left:0;right:0;
+    background:rgba(8,18,38,.98);backdrop-filter:blur(24px);
+    flex-direction:column;padding:1.8rem 1.5rem;gap:.3rem;
+    transform:translateY(-120%);opacity:0;
+    transition:transform .35s cubic-bezier(.4,0,.2,1),opacity .35s ease;
+    border-bottom:1px solid rgba(255,255,255,.1);
+    z-index:999;pointer-events:none;
   }
-  .nav-links.open{transform:translateY(0);opacity:1}
-  .hamburger{display:flex}
+  .nav-links.open{
+    transform:translateY(0);opacity:1;
+    pointer-events:all;
+  }
+  .nav-link{font-size:1rem;padding:.7rem 1rem;width:100%}
+  /* hamburger pushed to RIGHT */
+  .hamburger{display:flex;margin-left:auto}
   .btn-book-nav,.search-box{display:none}
 
-  /* ── HERO CONTENT ── */
-  .hero-content{padding:7rem 1.5rem 5rem}
+  /* ══ HERO CONTENT ══ */
+  .hero-content{padding:7rem 1.4rem 4.5rem}
 
-  /* ── BUTTONS — smaller font, NO pulse animation (causes flicker) ── */
+  /* ══ BUTTONS — no flicker, smaller ══ */
   .btn-primary{
-    font-size:.78rem;
-    padding:.75rem 1.4rem;
-    animation:none !important; /* disable pulse — fixes flicker on mobile */
-    box-shadow:0 4px 16px rgba(245,166,35,.4);
+    font-size:.8rem;padding:.72rem 1.3rem;
+    animation:none !important;
+    box-shadow:0 4px 14px rgba(245,166,35,.38);
   }
-  .btn-secondary{
-    font-size:.78rem;
-    padding:.75rem 1.2rem;
+  .btn-secondary{font-size:.8rem;padding:.72rem 1.1rem}
+  .hero-actions{gap:.65rem;flex-wrap:wrap}
+
+  /* ══ STATS — centered, smaller numbers ══ */
+  .hero-stats{
+    justify-content:center;
+    flex-wrap:nowrap;gap:0;
+    width:100%;
   }
-  .hero-actions{gap:.7rem}
+  .stat-item{flex:1;text-align:center}
+  .stat-divider{display:block;width:1px;height:36px;background:rgba(255,255,255,.15);flex-shrink:0}
+  .stat-num{font-size:1.50rem}
+  .stat-suffix{font-size:1rem}
+  .stat-item small{font-size:.65rem}
 
-  /* ── STATS ── */
-  .hero-stats{flex-wrap:wrap;gap:1.2rem}
-  .stat-divider{display:none}
-  .stat-num{font-size:1.6rem}
-
-  /* ── BADGE — smaller, doesn't cover content ── */
+  /* ══ BADGE — above slider, won't overlap stats ══ */
   .location-badge{
-    bottom:85px;
+    position:absolute;
+    bottom:70px;
     left:1rem;
     transform:none;
-    padding:.6rem 1rem;
-    border-radius:14px;
-    max-width:220px;
+    animation:badgeFloatMobile 3s ease-in-out infinite;
+    padding:.55rem .9rem;
+    border-radius:13px;
+    gap:.55rem;
+    max-width:200px;
   }
-  .location-badge strong{font-size:.8rem}
-  .location-badge small{font-size:.7rem}
-  .badge-pin::before{width:11px;height:11px}
-  .badge-pin::after{height:10px}
+  @keyframes badgeFloatMobile{
+    0%,100%{transform:translateY(0)}
+    50%    {transform:translateY(-5px)}
+  }
+  .location-badge strong{font-size:.78rem}
+  .location-badge small{font-size:.68rem}
+  .badge-pin{gap:0}
+  .badge-pin::before{width:10px;height:10px}
+  .badge-pin::after{width:2px;height:9px}
 
-  /* ── CHEVRON ARROWS — smaller, properly overlapping ── */
-  .chevron-group{
-    right:8px;
-    gap:0;
-  }
+  /* ══ CHEVRONS — smaller, properly overlapping ══ */
+  .chevron-group{right:6px;gap:0}
   .chev-arrow{
-    width:20px;height:20px;
+    width:18px;height:18px;
     border-right:3px solid var(--cyan);
     border-top:3px solid var(--cyan);
-    margin-bottom:-12px; /* overlap correctly on mobile */
+    margin-bottom:-11px;
+    filter:drop-shadow(0 0 4px rgba(0,200,220,.8));
   }
 
-  /* ── SCROLL HINT — smaller, repositioned ── */
+  /* ══ SCROLL HINT — far RIGHT, vertical, small ══ */
   .scroll-hint{
-    right:auto;
-    left:50%;
-    transform:translateX(-50%);
-    bottom:1rem;
-    flex-direction:row;
-    gap:.4rem;
+    right:5px;
+    bottom:4%;
+    transform:translateY(50%);
+    left:auto;
+    flex-direction:column;
+    gap:.3rem;
   }
-  .scroll-mouse{
-    width:16px;height:26px;
-    border-width:1.5px;
-    padding-top:4px;
-  }
-  .scroll-ball{
-    width:2px;height:6px;
-  }
+  .scroll-mouse{width:15px;height:24px;border-width:1.5px;padding-top:3px}
+  .scroll-ball{width:2px;height:5px}
   .scroll-hint span{
-    writing-mode:horizontal-tb;
-    font-size:.6rem;
-    letter-spacing:1.5px;
+    writing-mode:vertical-rl;
+    font-size:.55rem;letter-spacing:1.5px;
   }
 
-  /* ── SLIDER CONTROLS ── */
-  .slider-controls{bottom:2rem}
-  .sl-btn{width:38px;height:38px;font-size:.85rem}
+  /* ══ SLIDER ══ */
+  .slider-controls{bottom:1.8rem}
+  .sl-btn{width:36px;height:36px;font-size:.8rem}
 
-  /* ── REST OF SECTIONS ── */
+  /* ══ DESTINATIONS — show ALL cards in single column ══ */
+  .dest-grid{
+    display:flex !important;
+    flex-direction:column !important;
+    gap:1rem;
+  }
+  .dest-grid .d-card{
+    width:100% !important;
+    height:220px !important;
+    grid-column:unset !important;
+    grid-row:unset !important;
+  }
+  .dest-grid .d-card.large{height:240px !important}
+  .d-info{opacity:1 !important;transform:translateY(0) !important}
+
+  /* ══ REST ══ */
   .about-feats{grid-template-columns:1fr}
   .booking-form{grid-template-columns:1fr}
   .footer-grid{grid-template-columns:1fr;gap:2rem}
   .f-bottom{flex-direction:column;text-align:center}
-  .dest-grid{grid-template-columns:1fr}
-  .d-card.large{grid-column:span 1;height:240px}
 }
 @media(max-width:480px){
   .booking-card{padding:1.5rem}
