@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Travel The World — Discover Your Journey</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;600;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- ══ SCROLL PROGRESS ══ -->
+  <div id="scrollProgress"></div>
+
+  <!-- ══ PRELOADER ══ -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-inner">
+      <div class="plane-icon">✈</div>
+      <div class="preloader-bar"><div class="preloader-fill"></div></div>
+      <p>Loading Your Adventure...</p>
+    </div>
+  </div>
+
+  <!-- ══ NAVBAR ══ -->
+  <header class="navbar" id="navbar">
+    <nav class="nav-container">
+      <div class="nav-logo">
+        <span class="logo-icon">✈</span>
+        <span class="logo-text">Travel<span class="logo-accent">World</span></span>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home"         class="nav-link active">Home</a></li>
+        <li><a href="#services"     class="nav-link">Services</a></li>
+        <li><a href="#about"        class="nav-link">About</a></li>
+        <li><a href="#destinations" class="nav-link">Destinations</a></li>
+        <li><a href="#contact"      class="nav-link">Contact</a></li>
+        <li><a href="#faq"          class="nav-link">FAQ</a></li>
+      </ul>
+      <div class="nav-right">
+        <div class="search-box">
+          <input type="text" placeholder="Search destinations..." id="searchInput" readonly/>
+          <button class="search-btn" id="openSearch" aria-label="Search">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+            </svg>
+          </button>
+        </div>
+        <button class="btn-book-nav">Book Now</button>
+        <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ══════════════════════════════════════
+       HERO SECTION
+  ══════════════════════════════════════ -->
+  <section class="hero" id="home">
+
+    <!-- Background particles & blobs -->
+    <div class="hero-bg">
+      <div class="bg-blob blob-1"></div>
+      <div class="bg-blob blob-2"></div>
+      <div class="bg-blob blob-3"></div>
+      <div class="particles" id="particles"></div>
+    </div>
+
+    <!-- ★ LEFT: Text Content ★ -->
+    <div class="hero-content">
+      <div class="hero-tag">
+        <span class="tag-dot"></span>
+        <span id="heroTagText">Award-Winning Travel Agency</span>
+      </div>
+      <h1 class="hero-title">
+        <span class="title-bold" id="heroTitleWord">TRAVEL</span>
+        <span class="title-cursive" id="heroCursive">The World</span>
+      </h1>
+      <h2 class="hero-subtitle" id="heroSubtitle">LANDING PAGE</h2>
+      <p class="hero-desc" id="heroDesc">
+        Discover breathtaking destinations across the globe. We craft unforgettable
+        journeys tailored to your dreams — from serene tropical escapes to
+        thrilling mountain adventures.
+      </p>
+      <div class="hero-actions">
+        <button class="btn-primary pulse-btn">
+          <span>LEARN MORE</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </button>
+        <button class="btn-secondary">
+          <div class="play-icon">▶</div>
+          <span>Watch Video</span>
+        </button>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-row">
+            <strong class="stat-num" data-target="150">0</strong><span class="stat-suffix">+</span>
+          </div>
+          <small>Destinations</small>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <div class="stat-row">
+            <strong class="stat-num" data-target="50">0</strong><span class="stat-suffix">K+</span>
+          </div>
+          <small>Happy Clients</small>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <div class="stat-row">
+            <strong class="stat-num" data-target="20">0</strong><span class="stat-suffix">+</span>
+          </div>
+          <small>Years Experience</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- ★ RIGHT: Image Panel with diagonal clip ★ -->
+    <div class="hero-image-panel">
+      <!-- Real travel photo -->
+      <img
+        id="heroImg"
+        src="https://images.unsplash.com/photo-1503220317375-aaad61436b1b?w=1400&q=85&auto=format&fit=crop"
+        alt="Traveler"
+        class="hero-photo"
+      />
+      <!-- Dark gradient blend on left edge -->
+      <div class="panel-overlay"></div>
+
+      <!-- ★★ BIG CYAN CHEVRON ARROW — visible on right side ★★ -->
+      <div class="chevron-group">
+        <div class="big-chev"></div>
+        <div class="big-chev"></div>
+        <div class="big-chev"></div>
+      </div>
+
+      <!-- Location badge bottom-left of panel -->
+      <div class="location-badge">
+        <span class="badge-pin">📍</span>
+        <div>
+          <strong id="badgeCity">Santorini, Greece</strong>
+          <small>Explore Now</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- ★ Slider arrows + dots ★ -->
+    <div class="slider-controls">
+      <button class="sl-btn" id="prevBtn">&#9664;</button>
+      <div class="slider-dots">
+        <div class="dot active" data-i="0"></div>
+        <div class="dot"        data-i="1"></div>
+        <div class="dot"        data-i="2"></div>
+      </div>
+      <button class="sl-btn" id="nextBtn">&#9654;</button>
+    </div>
+
+    <!-- Scroll hint -->
+    <div class="scroll-hint">
+      <div class="scroll-mouse"><div class="scroll-ball"></div></div>
+      <span>Scroll</span>
+    </div>
+
+  </section><!-- /hero -->
+
+  <!-- ══ MARQUEE TICKER ══ -->
+  <div class="marquee-strip">
+    <div class="marquee-track">
+      <span>✈ Paris</span><span>🌴 Bali</span><span>🏔 Swiss Alps</span>
+      <span>🗽 New York</span><span>🌸 Tokyo</span><span>🐘 Safari</span>
+      <span>🏖 Maldives</span><span>🏛 Rome</span><span>🌅 Santorini</span>
+      <span>✈ Paris</span><span>🌴 Bali</span><span>🏔 Swiss Alps</span>
+      <span>🗽 New York</span><span>🌸 Tokyo</span><span>🐘 Safari</span>
+      <span>🏖 Maldives</span><span>🏛 Rome</span><span>🌅 Santorini</span>
+    </div>
+  </div>
+
+  <!-- ══ SERVICES ══ -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="sec-tag">What We Offer</span>
+        <h2 class="sec-title">Our <em class="gold">Premium</em> Services</h2>
+        <p class="sec-desc">Everything you need for the perfect journey, all in one place.</p>
+      </div>
+      <div class="services-grid">
+        <div class="srv-card reveal">
+          <div class="srv-icon-wrap"><span>✈</span></div>
+          <h3>Flight Booking</h3>
+          <p>Find the best flights at unbeatable prices with our smart engine across 500+ airlines.</p>
+          <a href="#" class="srv-link">Explore →</a>
+        </div>
+        <div class="srv-card featured reveal">
+          <div class="srv-badge">Most Popular</div>
+          <div class="srv-icon-wrap"><span>🏨</span></div>
+          <h3>Hotel & Resorts</h3>
+          <p>Luxury stays, boutique hotels, and cozy retreats — hand-picked for extraordinary experiences.</p>
+          <a href="#" class="srv-link">Explore →</a>
+        </div>
+        <div class="srv-card reveal">
+          <div class="srv-icon-wrap"><span>🗺</span></div>
+          <h3>Tour Packages</h3>
+          <p>All-inclusive packages designed to give you the ultimate travel experience without hassle.</p>
+          <a href="#" class="srv-link">Explore →</a>
+        </div>
+        <div class="srv-card reveal">
+          <div class="srv-icon-wrap"><span>🛡</span></div>
+          <h3>Travel Insurance</h3>
+          <p>Comprehensive coverage from flight delays to medical emergencies anywhere worldwide.</p>
+          <a href="#" class="srv-link">Explore →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ ABOUT ══ -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-imgs reveal">
+          <div class="aimg aimg-main">
+            <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=700&q=80&auto=format&fit=crop" alt="Mountain Adventure"/>
+          </div>
+          <div class="aimg aimg-sm">
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80&auto=format&fit=crop" alt="Beach"/>
+          </div>
+          <div class="exp-badge">
+            <strong>20+</strong>
+            <span>Years of<br>Excellence</span>
+          </div>
+        </div>
+        <div class="about-text reveal">
+          <span class="sec-tag">About Us</span>
+          <h2 class="sec-title">We Make Your <em class="gold">Dream Trip</em> A Reality</h2>
+          <p>Since 2004, TravelWorld has been crafting extraordinary journeys for adventurers, families, and explorers worldwide. Our certified experts design personalized itineraries that go beyond the ordinary.</p>
+          <p>We believe every trip should be a story worth telling — and we're here to make sure yours is unforgettable.</p>
+          <div class="about-checks">
+            <div class="check-item"><span class="chk">✓</span> Personalized Itineraries</div>
+            <div class="check-item"><span class="chk">✓</span> 24/7 Travel Support</div>
+            <div class="check-item"><span class="chk">✓</span> Best Price Guarantee</div>
+            <div class="check-item"><span class="chk">✓</span> Expert Local Guides</div>
+          </div>
+          <button class="btn-primary">Discover More ↗</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ DESTINATIONS ══ -->
+  <section class="destinations" id="destinations">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="sec-tag">Top Picks</span>
+        <h2 class="sec-title">Popular <em class="gold">Destinations</em></h2>
+        <p class="sec-desc">Hand-curated destinations that will leave you breathless.</p>
+      </div>
+      <div class="filter-bar">
+        <button class="fbtn active" data-f="all">All</button>
+        <button class="fbtn" data-f="beach">Beach</button>
+        <button class="fbtn" data-f="mountain">Mountain</button>
+        <button class="fbtn" data-f="city">City</button>
+        <button class="fbtn" data-f="cultural">Cultural</button>
+      </div>
+      <div class="dest-grid" id="destGrid">
+
+        <div class="dcard reveal" data-cat="beach">
+          <div class="dcard-img" style="background-image:url('https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=800&q=80&auto=format&fit=crop')">
+            <div class="dcard-overlay">
+              <div class="dcard-rating">⭐ 4.9</div>
+              <div class="dcard-info">
+                <h3>Maldives</h3><p>🌍 Indian Ocean</p>
+                <div class="dcard-price">From <strong>$1,299</strong>/person</div>
+                <button class="btn-book-dest">Book Now</button>
+              </div>
+            </div>
+          </div>
+          <span class="dcard-tag beach">Beach</span>
+        </div>
+
+        <div class="dcard dcard-lg reveal" data-cat="city">
+          <div class="dcard-img" style="background-image:url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=900&q=80&auto=format&fit=crop')">
+            <div class="dcard-overlay">
+              <div class="dcard-rating">⭐ 4.8</div>
+              <div class="dcard-info">
+                <h3>Paris, France</h3><p>🌍 Europe</p>
+                <div class="dcard-price">From <strong>$899</strong>/person</div>
+                <button class="btn-book-dest">Book Now</button>
+              </div>
+            </div>
+          </div>
+          <span class="dcard-tag city">City</span>
+        </div>
+
+        <div class="dcard reveal" data-cat="mountain">
+          <div class="dcard-img" style="background-image:url('https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=800&q=80&auto=format&fit=crop')">
+            <div class="dcard-overlay">
+              <div class="dcard-rating">⭐ 4.7</div>
+              <div class="dcard-info">
+                <h3>Swiss Alps</h3><p>🌍 Europe</p>
+                <div class="dcard-price">From <strong>$1,599</strong>/person</div>
+                <button class="btn-book-dest">Book Now</button>
+              </div>
+            </div>
+          </div>
+          <span class="dcard-tag mountain">Mountain</span>
+        </div>
+
+        <div class="dcard reveal" data-cat="cultural">
+          <div class="dcard-img" style="background-image:url('https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=800&q=80&auto=format&fit=crop')">
+            <div class="dcard-overlay">
+              <div class="dcard-rating">⭐ 4.9</div>
+              <div class="dcard-info">
+                <h3>Kyoto, Japan</h3><p>🌍 Asia</p>
+                <div class="dcard-price">From <strong>$1,199</strong>/person</div>
+                <button class="btn-book-dest">Book Now</button>
+              </div>
+            </div>
+          </div>
+          <span class="dcard-tag cultural">Cultural</span>
+        </div>
+
+        <div class="dcard reveal" data-cat="beach">
+          <div class="dcard-img" style="background-image:url('https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=800&q=80&auto=format&fit=crop')">
+            <div class="dcard-overlay">
+              <div class="dcard-rating">⭐ 4.8</div>
+              <div class="dcard-info">
+                <h3>Santorini</h3><p>🌍 Greece</p>
+                <div class="dcard-price">From <strong>$999</strong>/person</div>
+                <button class="btn-book-dest">Book Now</button>
+              </div>
+            </div>
+          </div>
+          <span class="dcard-tag beach">Beach</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ BOOKING FORM ══ -->
+  <section class="booking-sec">
+    <div class="container">
+      <div class="booking-card reveal">
+        <div class="booking-head">
+          <h2>🗓 Plan Your Perfect Trip</h2>
+          <p>Fill in the details and our experts will craft your dream itinerary</p>
+        </div>
+        <div class="booking-form-row">
+          <div class="bf-group">
+            <label>📍 Where From?</label>
+            <input type="text" placeholder="City or Airport"/>
+          </div>
+          <div class="bf-group">
+            <label>🎯 Where To?</label>
+            <input type="text" placeholder="Destination"/>
+          </div>
+          <div class="bf-group">
+            <label>📅 Departure</label>
+            <input type="date"/>
+          </div>
+          <div class="bf-group">
+            <label>📅 Return</label>
+            <input type="date"/>
+          </div>
+          <div class="bf-group">
+            <label>👥 Travelers</label>
+            <select>
+              <option>1 Adult</option>
+              <option>2 Adults</option>
+              <option>Family (2+2)</option>
+              <option>Group (6+)</option>
+            </select>
+          </div>
+          <button class="btn-search-trip" id="searchTripBtn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+            </svg>
+            Search
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ TESTIMONIALS ══ -->
+  <section class="testimonials">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="sec-tag">Reviews</span>
+        <h2 class="sec-title">What Our <em class="gold">Travelers</em> Say</h2>
+      </div>
+      <div class="t-slider">
+        <div class="t-card active">
+          <div class="t-stars">★★★★★</div>
+          <p>"TravelWorld made our honeymoon absolutely magical. Every detail was perfect — from the hotel to the guided tours. We couldn't have asked for better service!"</p>
+          <div class="t-author">
+            <div class="t-avatar">S</div>
+            <div><strong>Sarah Mitchell</strong><small>Maldives Honeymoon Package</small></div>
+          </div>
+        </div>
+        <div class="t-card">
+          <div class="t-stars">★★★★★</div>
+          <p>"I've traveled to 30+ countries and TravelWorld is by far the most professional agency I've ever used. Their local guides have insider knowledge money simply can't buy."</p>
+          <div class="t-author">
+            <div class="t-avatar">J</div>
+            <div><strong>James Rodriguez</strong><small>Japan Cultural Tour</small></div>
+          </div>
+        </div>
+        <div class="t-card">
+          <div class="t-stars">★★★★★</div>
+          <p>"The Swiss Alps ski package was incredible. Everything was handled flawlessly — transfers, accommodation, ski passes. Pure perfection from start to finish!"</p>
+          <div class="t-author">
+            <div class="t-avatar">A</div>
+            <div><strong>Amira Hassan</strong><small>Swiss Alps Adventure</small></div>
+          </div>
+        </div>
+      </div>
+      <div class="t-controls">
+        <button class="t-btn" id="tPrev">‹</button>
+        <div class="t-dots">
+          <div class="t-dot active"></div>
+          <div class="t-dot"></div>
+          <div class="t-dot"></div>
+        </div>
+        <button class="t-btn" id="tNext">›</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FAQ ══ -->
+  <section class="faq-sec" id="faq">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="sec-tag">FAQ</span>
+        <h2 class="sec-title">Frequently Asked <em class="gold">Questions</em></h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-q"><span>How far in advance should I book?</span><div class="faq-ico">+</div></div>
+          <div class="faq-a"><p>We recommend booking at least 3–6 months in advance for peak season, and 1–3 months for off-peak. Early booking ensures better rates and availability.</p></div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-q"><span>What's included in your tour packages?</span><div class="faq-ico">+</div></div>
+          <div class="faq-a"><p>Our all-inclusive packages cover flights, hotel accommodations, airport transfers, guided tours, most meals, and travel insurance. Specific inclusions vary by package.</p></div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-q"><span>Do you offer custom itineraries?</span><div class="faq-ico">+</div></div>
+          <div class="faq-a"><p>Absolutely! We specialize in tailor-made travel experiences. Share your vision and we'll craft a personalized itinerary that matches your interests and budget.</p></div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-q"><span>What is your cancellation policy?</span><div class="faq-ico">+</div></div>
+          <div class="faq-a"><p>We offer flexible cancellation up to 30 days before departure for a full refund. Cancellations within 30 days may incur fees. Travel insurance covers unexpected changes.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CONTACT ══ -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <span class="sec-tag">Contact Us</span>
+          <h2 class="sec-title">Let's Plan Your <em class="gold">Adventure</em></h2>
+          <p>Ready to start your journey? Our travel experts are available 24/7 to answer your questions and help plan your perfect trip.</p>
+          <div class="c-items">
+            <div class="c-item">
+              <div class="c-ico">📞</div>
+              <div><strong>Call Us</strong><span>+1 (800) 123-TRAVEL</span></div>
+            </div>
+            <div class="c-item">
+              <div class="c-ico">✉</div>
+              <div><strong>Email Us</strong><span>hello@travelworld.com</span></div>
+            </div>
+            <div class="c-item">
+              <div class="c-ico">📍</div>
+              <div><strong>Visit Us</strong><span>123 Adventure Ave, New York, NY</span></div>
+            </div>
+          </div>
+          <div class="socials">
+            <a href="#" class="soc-btn">f</a>
+            <a href="#" class="soc-btn">in</a>
+            <a href="#" class="soc-btn">tw</a>
+            <a href="#" class="soc-btn">yt</a>
+          </div>
+        </div>
+        <div class="contact-form reveal">
+          <h3>Send Us a Message</h3>
+          <div class="cf-group"><input type="text"   placeholder="Your Full Name"/></div>
+          <div class="cf-group"><input type="email"  placeholder="Email Address"/></div>
+          <div class="cf-group">
+            <select>
+              <option value="">Select Service</option>
+              <option>Flight Booking</option>
+              <option>Hotel Reservation</option>
+              <option>Tour Package</option>
+              <option>Custom Itinerary</option>
+            </select>
+          </div>
+          <div class="cf-group"><textarea rows="4" placeholder="Tell us about your dream trip..."></textarea></div>
+          <button class="btn-primary btn-full" onclick="submitForm(event)">Send Message ✉</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CTA BANNER ══ -->
+  <section class="cta-banner">
+    <div class="cta-bg"></div>
+    <div class="container">
+      <div class="cta-inner reveal">
+        <h2>Start Your Adventure Today</h2>
+        <p>Join 50,000+ happy travelers who discovered the world with us. Your next chapter begins now.</p>
+        <div class="cta-btns">
+          <button class="btn-primary">Book Your Trip</button>
+          <button class="btn-ghost">View All Destinations</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ══ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="f-logo">✈ Travel<span>World</span></div>
+          <p>Your trusted partner for extraordinary travel experiences since 2004. We turn your travel dreams into unforgettable realities.</p>
+          <div class="f-awards">
+            <span class="f-badge">🏆 Best Agency 2025</span>
+            <span class="f-badge">⭐ 4.9/5 Rating</span>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#destinations">Destinations</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Top Destinations</h4>
+          <ul>
+            <li><a href="#">🌴 Bali, Indonesia</a></li>
+            <li><a href="#">🗼 Paris, France</a></li>
+            <li><a href="#">🏔 Swiss Alps</a></li>
+            <li><a href="#">🌸 Kyoto, Japan</a></li>
+            <li><a href="#">🏖 Maldives</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Newsletter</h4>
+          <p>Get exclusive deals and travel tips delivered to your inbox.</p>
+          <div class="newsletter-row">
+            <input type="email" id="nlInput" placeholder="Your email address"/>
+            <button id="nlBtn">→</button>
+          </div>
+          <div class="nl-note">
+            <span>🔒 No spam</span>
+            <span>📧 Weekly deals</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© <span id="yr"></span> TravelWorld. All rights reserved. Made with ❤ for adventurers.</p>
+        <div class="f-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button class="back-top" id="backTop" aria-label="Back to top">↑</button>
+
+  <!-- ══ SEARCH OVERLAY ══ -->
+  <div id="searchOverlay">
+    <div class="s-modal">
+      <div class="s-row">
+        <input type="text" id="sInput" placeholder="Search destinations, packages, tours..."/>
+        <button id="sClose">✕</button>
+      </div>
+      <p class="s-label">Popular Searches:</p>
+      <div class="s-tags">
+        <span onclick="fillSearch('Maldives')">🏖 Maldives</span>
+        <span onclick="fillSearch('Swiss Alps')">⛰ Swiss Alps</span>
+        <span onclick="fillSearch('Paris')">🗼 Paris</span>
+        <span onclick="fillSearch('Bali')">🌴 Bali</span>
+        <span onclick="fillSearch('Japan')">🌸 Japan</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Custom cursor -->
+  <div id="cursorGlow"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
