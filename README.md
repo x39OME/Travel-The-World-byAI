@@ -10,4 +10,4 @@
 
 <img src="Travel-The-World-AI.png" alt="Preview Project" />
 
-![This main img](https://github.com/x39OME/Travel-The-World-AI/blob/main/Travel-The-World-AI.png)
+![This main img]()
