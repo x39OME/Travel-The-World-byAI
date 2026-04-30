@@ -27,14 +27,23 @@ window.addEventListener('scroll', () => {
   highlightNavLink();
 });
 
-hamburger.addEventListener('click', () => {
+hamburger.addEventListener('click', (e) => {
+  e.stopPropagation();
   hamburger.classList.toggle('open');
   navLinks.classList.toggle('open');
 });
+// Close when clicking a nav link
 document.querySelectorAll('.nav-link').forEach(l => l.addEventListener('click', () => {
   hamburger.classList.remove('open');
   navLinks.classList.remove('open');
 }));
+// Close when clicking outside
+document.addEventListener('click', (e) => {
+  if (!navbar.contains(e.target)) {
+    hamburger.classList.remove('open');
+    navLinks.classList.remove('open');
+  }
+});
 
 function highlightNavLink() {
   const pos = window.scrollY + 130;
@@ -178,8 +187,8 @@ function spawnParticles() {
 
   const isMobile = window.innerWidth < 768;
 
-  /* 1 — Floating particles going UP (like old version) */
-  const pCount = isMobile ? 14 : 35;
+  /* 1 — Floating particles going UP — fewer & slower on mobile */
+  const pCount = isMobile ? 6 : 35;
   for (let i = 0; i < pCount; i++) {
     const p = document.createElement('div');
     p.className = 'particle';
@@ -206,7 +215,7 @@ function spawnParticles() {
 
   /* 2 — Stars: HALF fixed (twinkle in place) + HALF drift upward slowly */
   const heroEl = document.querySelector('.hero-bg');
-  const sCount = isMobile ? 24 : 60;
+  const sCount = isMobile ? 10 : 60;
   for (let i = 0; i < sCount; i++) {
     const s = document.createElement('div');
     const isFixed = i < sCount * 0.6; /* 60% fixed, 40% drifting up */
@@ -224,8 +233,10 @@ function spawnParticles() {
         : `0 0 ${size*2}px rgba(200,240,255,.6)`,
       animationName: isFixed ? 'starTwinkle' : 'starDriftUp',
       animationDuration: isFixed
-        ? (Math.random() * 3 + 2) + 's'
-        : (Math.random() * 4  + 4)  + 's',     /* fast drift */
+        ? (Math.random() * 4 + 3) + 's'
+        : isMobile
+          ? (Math.random() * 6 + 8)  + 's'   /* slower on mobile */
+          : (Math.random() * 4 + 4)  + 's',
       animationDelay:  (Math.random() * 6) + 's',
       animationIterationCount: 'infinite',
       animationTimingFunction: isFixed ? 'ease-in-out' : 'linear',
@@ -233,8 +244,13 @@ function spawnParticles() {
     heroEl.appendChild(s);
   }
 
-  /* 3 — Shooting stars (diagonal fast lines) */
+  /* 3 — Shooting stars — desktop only */
   if (!isMobile) spawnShootingStars();
+  /* Disable rings animation on mobile for performance */
+  if (isMobile) {
+    document.querySelectorAll('.hero-ring').forEach(r => r.style.display = 'none');
+    document.querySelectorAll('.hero-grid').forEach(g => g.style.display = 'none');
+  }
 }
 
 function spawnShootingStars() {
