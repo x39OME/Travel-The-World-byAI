@@ -1032,7 +1032,7 @@ section{padding:5rem 0}
     box-shadow:0 4px 14px rgba(245,166,35,.38);
   }
   .btn-secondary{font-size:.8rem;padding:.72rem 1.1rem}
-  .hero-actions{gap:.65rem;flex-wrap:wrap}
+  .hero-actions{gap:.65rem;flex-wrap:wrap;margin-bottom: 2rem;}
 
   /* ══ STATS — centered, smaller numbers ══ */
   .hero-stats{
@@ -1080,8 +1080,8 @@ section{padding:5rem 0}
 
   /* ══ SCROLL HINT — far RIGHT, vertical, small ══ */
   .scroll-hint{
-    right:5px;
-    bottom:4%;
+    right:7px;
+    bottom:5%;
     transform:translateY(50%);
     left:auto;
     flex-direction:column;
